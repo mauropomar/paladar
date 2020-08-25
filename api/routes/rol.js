@@ -6,7 +6,7 @@ var multipart = require('connect-multiparty');
 var md_auth = require('../middlewares/authenticated');
 
 var api = express.Router();
-api.post('/register-rol', md_auth.ensureAuth, RolController.saveRol);
+api.post('/save-rol', md_auth.ensureAuth, RolController.saveRol);
 api.get('/rols/:page?',md_auth.ensureAuth, RolController.getRols);
 api.get('/rol/:id', md_auth.ensureAuth, RolController.getRol);
 api.put('/update-rol/:id', md_auth.ensureAuth, RolController.updateRol);
