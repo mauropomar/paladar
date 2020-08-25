@@ -12,6 +12,20 @@ export const navItems: INavData[] = [
   },
   {
     title: true,
+    name: 'Seguridad'
+  },
+  {
+    name: 'Usuarios',
+    url: '/user/users',
+    icon: 'icon-people'
+  },
+  {
+    name: 'Roles',
+    url: '/user/users',
+    icon: 'icon-user'
+  },
+  {
+    title: true,
     name: 'Theme'
   },
   {
