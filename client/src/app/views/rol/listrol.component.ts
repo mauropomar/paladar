@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RolService } from "../../services/rol.service";
-//import { GlobalService } from "../../services/global.service";
+import { GlobalService } from "../../services/global.service";
 import { ActivatedRoute, Router } from "@angular/router";
-//import { UtilService } from "../../services/util.service";
+import { UtilService } from "../../services/util.service";
+
+declare var $: any;
 
 @Component({
   selector: 'app-listrol',
@@ -16,11 +18,11 @@ export class ListrolComponent implements OnInit {
   public rolselect: any = [];
   public url: string;
 
-  constructor(private service: RolService, /*private global: GlobalService,*/
-    private router: Router,
+  constructor(private service: RolService, private global: GlobalService,
+    private util: UtilService, private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
- 
+
   }
 
   ngOnInit(): void {
@@ -34,4 +36,32 @@ export class ListrolComponent implements OnInit {
       })
   }
 
+  delete() {
+    let user = this.rolselect
+    this.service.delete(user)
+      .subscribe((data: any) => {
+        if (data.success == true) {
+          this.util.showNotification('pe-7s-check', 'success', data.message);
+          this.deleteOfArray();
+        }
+      }, (error) => {
+        this.util.showNotification('pe-7s-info', 'error', 'Ha ocurrido un error al intentar borrar el usuario.');
+      })
+  }
+
+  showConfirmDelete(rol) {
+    $('#modalConfirmDelete').modal();
+    this.rolselect = rol;
+  }
+
+  deleteOfArray() {
+    let myArray = this.rols;
+    let id = this.rolselect._id;
+    for (let i = 0; i < myArray.length; i++) {
+      if (myArray[i]._id === id) {
+        myArray.splice(i, 1);
+        break
+      }
+    }
+  }
 }

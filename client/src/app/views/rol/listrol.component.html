@@ -23,7 +23,7 @@
                                     <button type="button" mat-fab class="btn btn-primary"  data-toggle="tooltip" data-placement="top" title="Editar">
                                         <i class="icon-pencil"></i>
                                     </button>
-                                    <button type="button"mat-fab  class="btn btn-danger"  data-toggle="tooltip" data-placement="top" title="Borrar">
+                                    <button type="button"mat-fab  class="btn btn-danger"  data-toggle="tooltip" data-placement="top" title="Borrar" (click)="showConfirmDelete(item)">
                                         <i class="icon-trash"></i>
                                     </button>
                                 </td>
@@ -36,4 +36,5 @@
         <!--/.col-->
     </div>
     <!--/.row-->
+    <app-confirmdelete [message]="messagedelete" (deleteEvent)="delete()"></app-confirmdelete>
 </div>
