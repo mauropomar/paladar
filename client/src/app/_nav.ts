@@ -1,16 +1,7 @@
 import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
-  {
-    name: 'Dashboard',
-    url: '/dashboard',
-    icon: 'icon-speedometer',
-    badge: {
-      variant: 'info',
-      text: 'NEW'
-    }
-  },
-  {
+    {
     title: true,
     name: 'Seguridad'
   },
@@ -21,8 +12,17 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Roles',
-    url: '/user/users',
+    url: '/rol/rols',
     icon: 'icon-user'
+  },
+  {
+    name: 'Dashboard',
+    url: '/dashboard',
+    icon: 'icon-speedometer',
+    badge: {
+      variant: 'info',
+      text: 'NEW'
+    }
   },
   {
     title: true,

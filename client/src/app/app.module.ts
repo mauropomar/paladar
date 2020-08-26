@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
@@ -15,12 +17,13 @@ import { AppComponent } from './app.component';
 
 // Import containers
 import { DefaultLayoutComponent } from './containers';
-
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
+//Import other module
+import { NgxLoadingModule } from 'ngx-loading';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -41,13 +44,16 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
-import {ComponentModule} from './components/component.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
+    RouterModule,
+    HttpClientModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
     AppFooterModule,
@@ -57,7 +63,8 @@ import {ComponentModule} from './components/component.module';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    ComponentModule
+    NgxLoadingModule.forRoot({})
+    // ComponentModule
   ],
   declarations: [
     AppComponent,
@@ -71,6 +78,6 @@ import {ComponentModule} from './components/component.module';
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   }],
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

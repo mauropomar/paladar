@@ -1,0 +1,39 @@
+<div class="animated fadeIn">
+    <!--/.row-->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="icon-people"></i> Roles del Sistema
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of rols">
+                                <td>{{item.name}}</td>
+                                <td>{{item.description}}</td>
+                                <td class="td-actions text-right">
+                                    <button type="button" mat-fab class="btn btn-primary"  data-toggle="tooltip" data-placement="top" title="Editar">
+                                        <i class="icon-pencil"></i>
+                                    </button>
+                                    <button type="button"mat-fab  class="btn btn-danger"  data-toggle="tooltip" data-placement="top" title="Borrar">
+                                        <i class="icon-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.row-->
+</div>

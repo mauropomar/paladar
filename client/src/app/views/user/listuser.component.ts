@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listuser.component.css']
 })
 export class ListuserComponent implements OnInit {
-
+  total:number = 5;
   constructor() { }
 
   ngOnInit(): void {

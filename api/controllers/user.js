@@ -1,7 +1,6 @@
 'use strinct'
 
 var User = require('../models/user');
-//var bcrypt = require('bcrypt-nodejs');
 var jwt = require('../services/jwt');
 var mongoosePaginate = require('mongoose-pagination');
 var fs = require('fs');

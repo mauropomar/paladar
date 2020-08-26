@@ -11,7 +11,7 @@ import { RegisterComponent } from './views/register/register.component';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'dashboard',
     redirectTo: 'dashboard',
     pathMatch: 'full',
   },
@@ -27,6 +27,13 @@ export const routes: Routes = [
     component: P500Component,
     data: {
       title: 'Page 500'
+    }
+  },
+  {
+    path: '',
+    component: LoginComponent,
+    data: {
+      title: 'Login Page'
     }
   },
   {
@@ -47,7 +54,7 @@ export const routes: Routes = [
     path: '',
     component: DefaultLayoutComponent,
     data: {
-      title: 'Home'
+      title: ''
     },
     children: [
       {
@@ -85,6 +92,10 @@ export const routes: Routes = [
       {
         path: 'user',
         loadChildren: () => import('./views/user/user.module').then(m => m.UserModule)
+      },
+      {
+        path: 'rol',
+        loadChildren: () => import('./views/rol/rol.module').then(m => m.RolModule)
       }
     ]
   },

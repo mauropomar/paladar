@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ComborolComponent } from './combo/comborol.component';
+import { ComborolComponent } from './combo/comborol/comborol.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 @NgModule({
   declarations: [
-   
-  ComborolComponent],
+    ComborolComponent,
+    PaginationComponent
+  ],
   imports: [
     CommonModule
   ],
-  exports:[
+  exports: [
+    ComborolComponent,
+    PaginationComponent
   ]
 })
 export class ComponentModule { }
