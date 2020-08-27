@@ -6,7 +6,11 @@
                 <div class="card-header">
                     <i class="icon-people"></i> Roles del Sistema
                 </div>
+
                 <div class="card-body">
+                    <nav class="navbar navbar-dark bg-dark">
+                            <button class="btn btn-dark my-2 my-sm-0" type="submit"><i class="icon-doc"></i> Nuevo</button>
+                    </nav>
                     <table class="table table-bordered table-striped table-sm">
                         <thead>
                             <tr>
@@ -20,10 +24,12 @@
                                 <td>{{item.name}}</td>
                                 <td>{{item.description}}</td>
                                 <td class="td-actions text-right">
-                                    <button type="button" mat-fab class="btn btn-primary"  data-toggle="tooltip" data-placement="top" title="Editar">
+                                    <button type="button" mat-fab class="btn btn-primary" data-toggle="tooltip"
+                                        data-placement="top" title="Editar">
                                         <i class="icon-pencil"></i>
                                     </button>
-                                    <button type="button"mat-fab  class="btn btn-danger"  data-toggle="tooltip" data-placement="top" title="Borrar" (click)="showConfirmDelete(item)">
+                                    <button type="button" mat-fab class="btn btn-danger" data-toggle="tooltip"
+                                        data-placement="top" title="Borrar" (click)="showConfirmDelete(item)">
                                         <i class="icon-trash"></i>
                                     </button>
                                 </td>

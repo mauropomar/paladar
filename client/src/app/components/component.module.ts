@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ComborolComponent } from './combo/comborol/comborol.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { ConfirmdeleteComponent } from './window/confirmdelete/confirmdelete.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { ConfirmdeleteComponent } from './window/confirmdelete/confirmdelete.com
     ConfirmdeleteComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ModalModule.forRoot()
   ],
   exports: [
     ComborolComponent,
