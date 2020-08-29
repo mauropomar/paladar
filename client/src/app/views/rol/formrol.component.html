@@ -3,23 +3,31 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-header">
-                    <strong>Nuevo Rol</strong>
+                    <strong>{{title}}</strong>
                 </div>
                 <div class="card-body">
-                    <form class="needs-validation" novalidate>
-                        <div class="form-row">
-                            <div class="col-md-12 mb-3">
-                                <label for="validationTooltip01">Nombre</label>
-                                <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
-                                <div class="valid-tooltip">
-                                    Looks good!
+                    <form [formGroup]="forma" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group" [ngClass]="{'has-danger':!forma.get('name').valid}">
+                                    <label>Nombre<a style="color:red">*</a></label>
+                                    <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="rol.name"
+                                        formControlName="name">
+                                    <div class="haserror" *ngIf="forma.get('name').errors?.required">
+                                        Este campo es requerido.
+                                    </div>
+                                    <div class="haserror" *ngIf="forma.get('name').errors?.minlength">
+                                        Por lo menos 5 caracteres.
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="validationTooltip02">Descripción</label>
-                                <input type="text" class="form-control" id="validationTooltip02" value="Otto" required>
-                                <div class="valid-tooltip">
-                                    Looks good!
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Descripción</label>
+                                    <input type="text" class="form-control" placeholder="Description" formControlName="description"
+                                        [(ngModel)]="rol.description">
                                 </div>
                             </div>
                         </div>
@@ -27,8 +35,12 @@
                     <!--/.row-->
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
-                    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+                    <button type="submit" class="btn btn-sm btn-primary" [disabled]="!forma.valid" 
+                    *ngIf="!edit" (click)="insert(false)"><i class="fa fa-plus"></i> Agregar</button>
+                    <button type="submit" class="btn btn-sm btn-primary" [disabled]="!forma.valid" (click)="insert(true)">
+                        <i class="fa fa-check"></i> Aceptar</button>
+                    <button type="reset" class="btn btn-sm btn-primary" (click)="cancel()">
+                        <i class="fa fa-close"></i> Cancelar</button>
                 </div>
             </div>
         </div>

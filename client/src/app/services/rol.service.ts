@@ -20,7 +20,7 @@ export class RolService {
     let params = JSON.stringify(rol);
     let headers = new HttpHeaders().set('Content-Type', 'application/json')
         .set('Authorization', this.loginService.getToken());
-    let url = this.url + 'register-rol';
+    let url = this.url + 'save-rol';
     return this.http.post(url, params, {headers: headers})
         .pipe(map(response => {
           return response

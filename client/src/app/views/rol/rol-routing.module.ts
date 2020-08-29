@@ -23,7 +23,13 @@ const routes: Routes = [
         }
       },
       {
-        path: 'config',
+        path: 'create',
+        component: FormrolComponent,
+        data: {
+          title: 'Roles'
+        }
+      }, {
+        path: 'update/:id',
         component: FormrolComponent,
         data: {
           title: 'Roles'

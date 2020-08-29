@@ -29,6 +29,16 @@ export class ListrolComponent implements OnInit {
     this.getAll(true);
   }
 
+  newRol(){
+    this.router.navigate(["rol/create"]);
+  }
+
+  edit(rol) {
+    this.global.edit = true;
+    let id = rol._id;
+    this.router.navigate(['rol/update', id]);
+}
+
   getAll(active) {
     this.service.getAll(active)
       .subscribe(data => {

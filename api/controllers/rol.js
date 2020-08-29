@@ -54,7 +54,7 @@ function updateRol(req, res) {
             if (!datos) return res.status(404).send({success: false, message: 'No se ha podido actualizar.'});
             return res.status(200).send({
                 pais: datos,
-                message: 'El rol fue actualizada con éxito',
+                message: 'El rol fue actualizado con éxito',
                 success: true
             });
         });
